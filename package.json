@@ -1,11 +1,47 @@
 {
-  "name": "{{projectName}}",
-  "version": "{{version}}",
-  "description": "{{description}}",
-  "main": "index.js",
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "reactHooks",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "nwb build-react-app",
+    "clean": "nwb clean-app",
+    "start": "nwb serve-react-app --port=5500",
+    "test": "nwb test-react",
+    "test:coverage": "nwb test-react --coverage",
+    "test:watch": "nwb test-react --server"
   },
-  "author": "{{author}}",
-  "license": "ISC"
+  "dependencies": {
+    "react": "16.8.3",
+    "react-dom": "16.8.3"
+  },
+  "devDependencies": {
+    "@types/classnames": "2.2.6",
+    "@types/node": "^10.11.2",
+    "@types/query-string": "6.2.0",
+    "@types/react": "16.8.3",
+    "@types/react-dom": "16.8.2",
+    "@types/react-router-dom": "^4.3.1",
+    "@types/ua-parser-js": "0.7.32",
+    "awesome-typescript-loader": "^4.0.0",
+    "eslint": "^4.10.0",
+    "eslint-friendly-formatter": "3.0.0",
+    "eslint-loader": "1.9.0",
+    "eslint-plugin-react": "^7.4.0",
+    "git-revision-webpack-plugin": "2.5.1",
+    "git-root-path": "1.0.0",
+    "image-webpack-loader": "3.4.2",
+    "imagemin-pngquant": "imagemin/imagemin-pngquant",
+    "nwb": "0.19.x",
+    "nwb-less": "0.6.1",
+    "object.omit": "3.0.0",
+    "react-router-dom": "4.3.1",
+    "shipit-cli": "3.0.0",
+    "typescript": "^2.7.2",
+    "webpack": "3.8.1",
+    "webpack-oss-plugin-cjs": "0.9.3"
+  },
+  "author": "",
+  "license": "MIT",
+  "repository": ""
 }

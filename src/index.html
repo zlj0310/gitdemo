@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!-- 不让百度转码 -->
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover" />
+  <title>
+    <%= CONSTANTS.TITLE %>
+  </title>
+  <meta name="apple-mobile-web-app-title" content="<%= CONSTANTS.TITLE %>">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no,email=no,address=no">
+  <!-- 启用360浏览器的极速模式(webkit) -->
+  <meta name="renderer" content="webkit">
+  <!-- 避免IE使用兼容模式 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+  <meta name="HandheldFriendly" content="true">
+  <!-- 微软的老式浏览器 -->
+  <meta name="MobileOptimized" content="320">
+  <!-- uc强制竖屏 -->
+  <meta name="screen-orientation" content="portrait">
+  <!-- QQ强制竖屏 -->
+  <meta name="x5-orientation" content="portrait">
+  <!-- windows phone 点击无高光 -->
+  <meta name="msapplication-tap-highlight" content="no">
+  <link rel="dns-prefetch" href="//img.huijieapp.com">
+
+  <% if (NPMCOMMAND === 'build') { %>
+    <!-- fundebug for capture exception-->
+    <script src="https://img.huijieapp.com/h5/libs/fundebug/fundebug.1.9.0.min.js" apikey="797aaff71568b087cb225c77b379d9dc48b17aca79e74c7d99831a3f9b682d9a" silentVideo=false crossorigin='anonymous'></script>
+    <script src="https://img.huijieapp.com/h5/libs/fundebug/fundebug.config.js" crossorigin='anonymous'></script>
+    <!-- fundebug for capture exception-->
+  <% } %>
+
+  <% if (CONSTANTS.BUILD_ENV === 'TEST') { %>
+    <!-- debug -->
+    <script src="//cdn.bootcss.com/eruda/1.4.2/eruda.min.js"></script>
+    <script>
+    eruda.init();
+    </script>
+    <% } %>
+  <script src="//img.huijieapp.com/h5/js/JSEncrypt.min.v2.3.1.js" integrity="sha256-e2H6xqEoJPG9V+ZJzxpTLxTLRf+4Ta8elPVzASUGv24=" crossorigin="anonymous"></script>
+  <% if (NPMCOMMAND === 'build') { %>
+  <% if (CONSTANTS.POLYFILL) { %>
+  <!-- Poilfill for ES6 -->
+  <script src="<%= CONSTANTS.POLYFILL %>" integrity='sha256-2nu8qdFj9AM9XRd75EAp3XRGEKiRprWL4hPMhYkj150=' crossorigin="anonymous"></script>
+  <% } %>
+  <script>
+  (function(para) {
+    var n = para.name;
+    window['sensorsDataAnalytic201505'] = n;
+    window[n] = {
+      _q: [],
+      para: para
+    };
+  })({
+    sdk_url: '//img.huijieapp.com/h5/js/sensorsdata.min.js',
+    name: 'sa',
+    heatmap_url: 'https://img.huijieapp.com/h5/js/heatmap.min.js',
+    web_url: 'https://sensordata.huijieapp.com/?project=production',
+    server_url: 'https://sensordata.huijieapp.com:8016/sa?project=production',
+    is_track_device_id: true,
+    is_single_page: true,
+    use_app_track: false,
+    show_log: false,
+    debug_mode: false,
+    heatmap: {}
+  });
+  </script>
+  <script src="//img.huijieapp.com/h5/js/sensorsdata.min.js" integrity="sha256-Jq9WAFAlvw9w2vabcHXl1ZR/7mmK0lR1bSrqC9Dln5E=" crossorigin='anonymous'></script>
+  <script>
+  sa.quick('autoTrack');
+  </script>
+  <% } %>
+  <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+  <% if (NPMCOMMAND === 'build') { %>
+  <script src="//img.huijieapp.com/h5/libs/concat/react-router.16.8.3.js" integrity="sha256-YuNkh6c9nVVdKhnVMHCbzz8mHHL0Y1Ayx2OFo16B8oI=" crossorigin="anonymous"></script>
+  <% } %>
+  <script src="//img.huijieapp.com/h5/libs/localStorage/2.0.1/localStorage.js" integrity="sha256-0fTHmj68ZYtswNSKigw+A07DRzaQ8Wq/WyCjnX9lqN8=" crossorigin="anonymous"></script>
+  <script>
+  if (!window.sessionStorage) {
+    window.sessionStorage = window.localStorage();
+  }
+  </script>
+</body>
+</html>
