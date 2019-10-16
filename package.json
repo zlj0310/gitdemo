@@ -1,7 +1,8 @@
 {
-  "name": "boilerplate",
-  "version": "1.0.0",
-  "description": "reactHooks",
+  "name": "{{projectName}}",
+  "version": "{{version}}",
+  "description": "{{description}}",
+  "author": "{{author}}",
   "private": true,
   "scripts": {
     "build": "nwb build-react-app",
@@ -41,7 +42,6 @@
     "webpack": "3.8.1",
     "webpack-oss-plugin-cjs": "0.9.3"
   },
-  "author": "",
   "license": "MIT",
   "repository": ""
 }
